@@ -20,6 +20,7 @@ defmodule PhoenixSampleWeb.Router do
 
     get "/", PageController, :index
     get "/tools", ToolsController, :index
+    get "/tools/:name", ToolsController, :show
   end
 
   # Other scopes may use custom stacks.
