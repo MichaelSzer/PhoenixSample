@@ -1,4 +1,5 @@
 defmodule PhoenixSampleWeb.Router do
+  alias PhoenixSampleWeb.ToolsDashboardController
   use PhoenixSampleWeb, :router
 
   pipeline :browser do
@@ -18,6 +19,7 @@ defmodule PhoenixSampleWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/tools", ToolsController, :index
   end
 
   # Other scopes may use custom stacks.
