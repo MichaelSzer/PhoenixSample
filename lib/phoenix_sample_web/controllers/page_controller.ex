@@ -2,7 +2,7 @@ defmodule PhoenixSampleWeb.PageController do
   use PhoenixSampleWeb, :controller
 
   def index(conn, _params) do
-    render(conn, "index.html")
+    render(conn, :index)
   end
 
   def show_json(%Plug.Conn{params: url_params} = conn, _params) do
