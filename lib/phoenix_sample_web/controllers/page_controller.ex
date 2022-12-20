@@ -12,6 +12,8 @@ defmodule PhoenixSampleWeb.PageController do
   def admin(conn, _params) do
     conn
     |> put_root_layout("admin.html")
+    |> put_flash(:info, "My flash :info message.")
+    |> put_flash(:error, "Fake error, everything is good.")
     |> render("index.html")
   end
 end
