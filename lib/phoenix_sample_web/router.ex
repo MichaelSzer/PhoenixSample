@@ -19,6 +19,8 @@ defmodule PhoenixSampleWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/json", PageController, :show_json
+    get "/admin", PageController, :admin
     get "/tools", ToolsController, :index
     get "/tools/:name", ToolsController, :show
   end
