@@ -53,7 +53,6 @@ defmodule PhoenixSampleWeb.Endpoint do
     IO.puts """
     Verb: #{inspect(conn.method)}
     Path Information: #{inspect(conn.path_info)}
-    Requested Headers: #{inspect(conn.req_headers)}
     """
 
     conn

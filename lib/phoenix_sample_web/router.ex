@@ -1,5 +1,4 @@
 defmodule PhoenixSampleWeb.Router do
-  alias PhoenixSampleWeb.ToolsDashboardController
   use PhoenixSampleWeb, :router
 
   pipeline :browser do
