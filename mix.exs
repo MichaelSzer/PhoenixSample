@@ -49,7 +49,7 @@ defmodule PhoenixSample.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:distillery, "~> 2.1"}
+      {:distillery, git: "https://github.com/MichaelSzer/distillery.git"}
     ]
   end
 
