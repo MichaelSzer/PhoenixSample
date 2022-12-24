@@ -26,7 +26,8 @@ config :phoenix_sample, PhoenixSampleWeb.Endpoint,
   secret_key_base: "lxbsW7qGfgdp5xnUDcjTu2ou8ugt9PozqPtNaDvx0dUqcGZH4o2A3VP3KmFDdGio",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]
 
 # ## SSL Support
