@@ -6,7 +6,17 @@ defmodule PhoenixSampleWeb.PageController do
     render(conn, :index)
   end
 
-  def received(%Plug.Conn{params: %{"user_name" => name, "user_email" => email, "user_description" => description, "user_location" => location  }} = conn, _params) do
+  def received(
+      %Plug.Conn{
+        params: %{
+          "user_name" => name,
+          "user_email" => email,
+          "user_description" => description,
+          "user_location" => location
+        }
+      } = conn,
+      _params
+    ) do
 
     # Save in database
     case ClientRequest.changeset(%ClientRequest{}, %{name: name, email: email, location: location, description: description}) |> Repo.insert() do
