@@ -1,12 +1,20 @@
 defmodule PhoenixSampleWeb.PageController do
   use PhoenixSampleWeb, :controller
+  alias PhoenixSample.{Repo, ClientRequest}
 
   def index(conn, _params) do
     render(conn, :index)
   end
 
-  def received(conn, _params) do
-    render(conn, :received)
+  def received(%Plug.Conn{params: %{"user_name" => name, "user_email" => email, "user_description" => description, "user_location" => location  }} = conn, _params) do
+
+    # Save in database
+    case ClientRequest.changeset(%ClientRequest{}, %{name: name, email: email, location: location, description: description}) |> Repo.insert() do
+      {:ok, _client_request} ->
+        render(conn, :received)
+      {:error, changeset} ->
+        changeset
+    end
   end
 
   def show_json(%Plug.Conn{params: url_params} = conn, _params) do
