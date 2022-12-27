@@ -1,0 +1,23 @@
+<h1>Show Profile</h1>
+
+<ul>
+
+  <li>
+    <strong>Social media:</strong>
+    <%= @profile.social_media %>
+  </li>
+
+  <li>
+    <strong>Handle name:</strong>
+    <%= @profile.handle_name %>
+  </li>
+
+  <li>
+    <strong>Tags:</strong>
+    <%= @profile.tags %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.profile_path(@conn, :edit, @profile) %></span> |
+<span><%= link "Back", to: Routes.profile_path(@conn, :index) %></span>
