@@ -5,6 +5,10 @@ defmodule PhoenixSampleWeb.PageController do
     render(conn, :index)
   end
 
+  def received(conn, _params) do
+    render(conn, :received)
+  end
+
   def show_json(%Plug.Conn{params: url_params} = conn, _params) do
     json(conn, url_params)
   end

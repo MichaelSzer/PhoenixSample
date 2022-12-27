@@ -1,6 +1,33 @@
 <h1 class="text-3xl">
   Get Instagram to boost your sales!
 </h1>
-<p class ="font-bold">
-  Made by Miguel.
+<form id="user_form" class="m-10" action="/received" method="post">
+  <input type="hidden" name="_csrf_token" value={Plug.CSRFProtection.get_csrf_token()} />
+  <ul>
+    <li>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="user_name" placeholder="Ricardo" required/>
+    </li>
+    <li>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="user_email" placeholder="ricky12@gmail.com" required/>
+    </li>
+    <li>
+      <label for="location">Location:</label>
+      <select id="location" name="user_location" required>
+        <option value="" disabled selected>select a country please</option>
+        <option value="argentina">Argentina</option>
+        <option value="chile">Chile</option>
+        <option value="mexico">Mexico</option>
+      </select>
+    </li>
+    <li>
+      <button type="submit">
+        Submit
+      </button>
+    </li>
+  </ul>
+</form>
+<p class ="text-sm">
+  Made by Miguel :)
 </p>
