@@ -101,4 +101,20 @@ defmodule PhoenixSample.Manager do
   def change_profile(%Profile{} = profile, attrs \\ %{}) do
     Profile.changeset(profile, attrs)
   end
+
+  @doc """
+  Returns a %Profile{} updated with one more view.
+
+  ## Examples
+
+      iex> inc_profile_views(profile)
+      %Profiles{}
+  """
+  def inc_profile_views(%Profile{} = profile) do
+    {1, [%Profile{views: views}]} =
+      from(p in Profile, where: p.id == ^profile.id, select: [:views])
+      |> Repo.update_all([inc: [views: 1]])
+
+    %Profile{profile | views: views}
+  end
 end
