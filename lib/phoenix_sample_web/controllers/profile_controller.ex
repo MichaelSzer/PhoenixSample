@@ -28,7 +28,8 @@ defmodule PhoenixSampleWeb.ProfileController do
 
   def show(conn, %{"id" => id}) do
     profile =
-      Manager.get_profile!(id)
+      id
+      |> Manager.get_profile!()
       |> Manager.inc_profile_views()
 
     render(conn, "show.html", profile: profile)
