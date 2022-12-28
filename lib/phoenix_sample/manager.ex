@@ -51,7 +51,7 @@ defmodule PhoenixSample.Manager do
   """
   def create_profile(attrs \\ %{}) do
     %Profile{}
-    |> Profile.changeset(attrs)
+    |> change_profile(attrs)
     |> Repo.insert()
   end
 
@@ -69,7 +69,7 @@ defmodule PhoenixSample.Manager do
   """
   def update_profile(%Profile{} = profile, attrs) do
     profile
-    |> Profile.changeset(attrs)
+    |> change_profile(attrs)
     |> Repo.update()
   end
 
@@ -99,7 +99,12 @@ defmodule PhoenixSample.Manager do
 
   """
   def change_profile(%Profile{} = profile, attrs \\ %{}) do
-    Profile.changeset(profile, attrs)
+    categories = list_categories_by_id(attrs["category_ids"])
+
+    profile
+    |> Repo.preload(:categories)
+    |> Profile.changeset(attrs)
+    |> Ecto.Changeset.put_assoc(:categories, categories)
   end
 
   @doc """
@@ -131,6 +136,20 @@ defmodule PhoenixSample.Manager do
   """
   def list_categories do
     Repo.all(Category)
+  end
+
+  @doc """
+  Returns the list of categories with certain ids.
+
+  ## Examples
+
+      iex> list_categories([1, 2])
+      [%Category{}, ...]
+  """
+  def list_categories_by_id(nil), do: []
+  def list_categories_by_id(category_ids) do
+    from(c in Category, where: c.id in ^category_ids)
+    |> Repo.all()
   end
 
   @doc """
