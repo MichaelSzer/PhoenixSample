@@ -5,7 +5,7 @@
     <tr>
       <th>Social media</th>
       <th>Handle name</th>
-      <th>Tags</th>
+      <th>Views</th>
 
       <th></th>
     </tr>
@@ -15,7 +15,7 @@
     <tr>
       <td><%= profile.social_media %></td>
       <td><%= profile.handle_name %></td>
-      <td><%= profile.tags %></td>
+      <td><%= profile.views %></td>
 
       <td>
         <span><%= link "Show", to: Routes.profile_path(@conn, :show, profile) %></span>

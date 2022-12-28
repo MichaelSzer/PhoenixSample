@@ -5,7 +5,7 @@ defmodule PhoenixSample.Manager.Profile do
   schema "profiles" do
     field :handle_name, :string
     field :social_media, :string
-    field :tags, :string
+    field :views, :integer
 
     timestamps()
   end
@@ -13,7 +13,7 @@ defmodule PhoenixSample.Manager.Profile do
   @doc false
   def changeset(profile, attrs) do
     profile
-    |> cast(attrs, [:social_media, :handle_name, :tags])
-    |> validate_required([:social_media, :handle_name, :tags])
+    |> cast(attrs, [:social_media, :handle_name])
+    |> validate_required([:social_media, :handle_name])
   end
 end
