@@ -3,9 +3,9 @@ defmodule PhoenixSample.Repo.Migrations.CreateProfiles do
 
   def change do
     create table(:profiles) do
-      add :social_media, :string
-      add :handle_name, :string
-      add :tags, :string
+      add :social_media, :string, null: false
+      add :handle_name, :string, null: false
+      add :tags, :string, null: false
 
       timestamps()
     end

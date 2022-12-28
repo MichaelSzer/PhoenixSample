@@ -24,6 +24,7 @@ defmodule PhoenixSampleWeb.Router do
     get "/admin", PageController, :admin
     get "/tools", ToolsController, :index
     get "/tools/:name", ToolsController, :show
+    resources "/profiles", ProfileController
   end
 
   # Other scopes may use custom stacks.
