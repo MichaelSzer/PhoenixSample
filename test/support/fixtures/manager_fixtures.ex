@@ -19,4 +19,23 @@ defmodule PhoenixSample.ManagerFixtures do
 
     profile
   end
+
+  @doc """
+  Generate a unique category title.
+  """
+  def unique_category_title, do: "some title#{System.unique_integer([:positive])}"
+
+  @doc """
+  Generate a category.
+  """
+  def category_fixture(attrs \\ %{}) do
+    {:ok, category} =
+      attrs
+      |> Enum.into(%{
+        title: unique_category_title()
+      })
+      |> PhoenixSample.Manager.create_category()
+
+    category
+  end
 end
