@@ -5,6 +5,8 @@ defmodule PhoenixSample.ShoppingCart.Cart do
   schema "carts" do
     field :user_email, :string
 
+    has_many :items, PhoenixSample.ShoppingCart.CartItem
+
     timestamps()
   end
 

@@ -5,8 +5,9 @@ defmodule PhoenixSample.ShoppingCart.CartItem do
   schema "cart_items" do
     field :price_when_carted, :decimal
     field :quantity, :integer
-    field :cart_id, :id
-    field :profile_id, :id
+
+    belongs_to :cart, PhoenixSample.ShoppingCart.Cart
+    belongs_to :profile, PhoenixSample.Manager.Profile
 
     timestamps()
   end
@@ -16,5 +17,6 @@ defmodule PhoenixSample.ShoppingCart.CartItem do
     cart_item
     |> cast(attrs, [:price_when_carted, :quantity])
     |> validate_required([:price_when_carted, :quantity])
+    |> validate_number(:quanitity, greater_than_or_equal: 0, less_than: 100)
   end
 end
