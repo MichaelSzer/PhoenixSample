@@ -35,7 +35,9 @@ defmodule PhoenixSample.Manager do
       ** (Ecto.NoResultsError)
 
   """
-  def get_profile!(id), do: Repo.get!(Profile, id)
+  def get_profile!(id) do
+    Profile |> Repo.get!(id) |> Repo.preload(:categories)
+  end
 
   @doc """
   Creates a profile.
