@@ -9,6 +9,8 @@ defmodule PhoenixSampleWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug PhoenixSampleWeb.Plugs.Locale, "en"
+    plug PhoenixSampleWeb.Plugs.FetchCurrentUser
+    plug PhoenixSampleWeb.Plugs.FetchCurrentCart
   end
 
   pipeline :api do
