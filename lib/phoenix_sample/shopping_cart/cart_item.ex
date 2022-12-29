@@ -6,7 +6,7 @@ defmodule PhoenixSample.ShoppingCart.CartItem do
     field :price_when_carted, :decimal
     field :quantity, :integer
     field :cart_id, :id
-    field :profiles_id, :id
+    field :profile_id, :id
 
     timestamps()
   end
