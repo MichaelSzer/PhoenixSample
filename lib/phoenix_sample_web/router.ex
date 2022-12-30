@@ -27,6 +27,10 @@ defmodule PhoenixSampleWeb.Router do
     get "/tools", ToolsController, :index
     get "/tools/:name", ToolsController, :show
     resources "/profiles", ProfileController
+
+    resources "/cart_items", CartItemController, only: [:create, :delete]
+    get "/cart", CartController, :show
+    post "/cart", CartController, :update
   end
 
   # Other scopes may use custom stacks.

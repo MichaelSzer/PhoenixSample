@@ -9,7 +9,7 @@ defmodule PhoenixSampleWeb.Plugs.FetchCurrentCart do
   """
   def call(conn, _default) do
     # Convert uuid to email since carts are managed by strings.
-    user_email = "#{Integer.to_string(conn.assigns.user_uuid)}@gmail.com"
+    user_email = "#{conn.assigns.user_uuid}@gmail.com"
 
     if cart = ShoppingCart.get_cart_by_user_email(user_email) do
       assign(conn, :cart, cart)
