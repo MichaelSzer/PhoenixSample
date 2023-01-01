@@ -5,10 +5,9 @@ defmodule PhoenixSample.Sandbox.Author do
 
   alias PhoenixSample.Sandbox.{Book}
 
+  @primary_key {:name, :string, autogenerate: false}
   schema "authors" do
-    field :name, :string
-
-    has_many :books, Book
+    has_many(:books, Book, foreign_key: :author, references: :name)
   end
 
   @doc false

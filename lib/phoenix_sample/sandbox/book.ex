@@ -3,12 +3,10 @@ defmodule PhoenixSample.Sandbox.Book do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias PhoenixSample.Sandbox.{Author}
 
+  @primary_key {:author, :string, autogenerate: false}
   schema "books" do
     field :title, :string
-
-    belongs_to :author_name, Author, foreign_key: :author
   end
 
   @doc false
