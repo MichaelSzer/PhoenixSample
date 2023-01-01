@@ -7,6 +7,6 @@ defmodule PhoenixSample.Repo.Migrations.CreateBook do
       add :author, references(:authors, on_delete: :delete_all)
     end
 
-    create unique(:books, [:title])
+    unique_index(:books, [:title])
   end
 end
