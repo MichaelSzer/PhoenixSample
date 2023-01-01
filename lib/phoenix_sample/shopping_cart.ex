@@ -4,9 +4,8 @@ defmodule PhoenixSample.ShoppingCart do
   """
 
   import Ecto.Query, warn: false
-  alias PhoenixSample.Repo
-
-  alias PhoenixSample.ShoppingCart.Cart
+  alias PhoenixSample.{Repo, Manager}
+  alias PhoenixSample.ShoppingCart.{Cart, CartProfile}
 
   @doc """
   Returns the list of carts.
@@ -146,7 +145,7 @@ defmodule PhoenixSample.ShoppingCart do
 
   """
   def create_cart_item(attrs \\ %{}) do
-    %CartItem{}
+    %CartProfile{}
     |> CartItem.changeset(attrs)
     |> Repo.insert()
   end
@@ -163,9 +162,9 @@ defmodule PhoenixSample.ShoppingCart do
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_cart_item(%CartItem{} = cart_item, attrs) do
-    cart_item
-    |> CartItem.changeset(attrs)
+  def update_cart_item(%CartProfile{} = cart_profile, attrs) do
+    cart_profile
+    |> CartProfile.changeset(attrs)
     |> Repo.update()
   end
 
@@ -181,8 +180,8 @@ defmodule PhoenixSample.ShoppingCart do
       {:error, %Ecto.Changeset{}}
 
   """
-  def delete_cart_item(%CartItem{} = cart_item) do
-    Repo.delete(cart_item)
+  def delete_cart_item(%CartProfile{} = cart_profile) do
+    Repo.delete(cart_profile)
   end
 
   @doc """
@@ -194,7 +193,12 @@ defmodule PhoenixSample.ShoppingCart do
       %Ecto.Changeset{data: %CartItem{}}
 
   """
-  def change_cart_item(%CartItem{} = cart_item, attrs \\ %{}) do
-    CartItem.changeset(cart_item, attrs)
+  def change_cart_item(%CartProfile{} = cart_profile, attrs \\ %{}) do
+    CartProfile.changeset(cart_profile, attrs)
+  end
+
+  def get_cart_by_user_email(user_email) do
+    from(c in Cart, where: c.user_email == ^user_email)
+    |> Repo.one!()
   end
 end

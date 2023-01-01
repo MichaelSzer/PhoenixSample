@@ -8,7 +8,7 @@ defmodule PhoenixSample.Sandbox.Book do
   schema "books" do
     field :title, :string
 
-    belongs_to :author, Author
+    belongs_to :author_name, Author, foreign_key: :author
   end
 
   @doc false

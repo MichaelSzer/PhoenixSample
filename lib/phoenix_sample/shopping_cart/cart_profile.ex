@@ -1,8 +1,8 @@
-defmodule PhoenixSample.ShoppingCart.CartItem do
+defmodule PhoenixSample.ShoppingCart.CartProfile do
   use Ecto.Schema
   import Ecto.Changeset
 
-  schema "cart_items" do
+  schema "cart_profiles" do
     field :price_when_carted, :decimal
     field :quantity, :integer
 

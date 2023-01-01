@@ -10,7 +10,7 @@ defmodule PhoenixSampleWeb.Router do
     plug :put_secure_browser_headers
     plug PhoenixSampleWeb.Plugs.Locale, "en"
     plug PhoenixSampleWeb.Plugs.FetchCurrentUser
-    plug PhoenixSampleWeb.Plugs.FetchCurrentCart
+    #plug PhoenixSampleWeb.Plugs.FetchCurrentCart
   end
 
   pipeline :api do
