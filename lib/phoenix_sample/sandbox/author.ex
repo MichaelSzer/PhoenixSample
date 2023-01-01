@@ -3,7 +3,7 @@ defmodule PhoenixSample.Sandbox.Author do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias PhoenixSample.Sandbox.{Author, Book}
+  alias PhoenixSample.Sandbox.{Book}
 
   schema "author" do
     field :name, :string
@@ -11,7 +11,8 @@ defmodule PhoenixSample.Sandbox.Author do
     has_many :books, Book
   end
 
-  def changeset(%Author{} = author, attrs \\ []) do
+  @doc false
+  def changeset(author, attrs) do
     author
     |> cast(attrs, [:name])
   end
