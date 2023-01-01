@@ -5,7 +5,7 @@ defmodule PhoenixSample.Sandbox.Book do
 
   alias PhoenixSample.Sandbox.{Author}
 
-  schema "book" do
+  schema "books" do
     field :title, :string
 
     belongs_to :author, Author
