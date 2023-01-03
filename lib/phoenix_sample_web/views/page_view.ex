@@ -27,4 +27,13 @@ defmodule PhoenixSampleWeb.PageView do
     </p>
     """
   end
+
+
+  @doc false
+  def red_asterisk(assigns) do
+
+    ~H"""
+    <span class="text-red-500">*</span>
+    """
+  end
 end
