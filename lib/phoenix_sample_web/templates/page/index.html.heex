@@ -10,9 +10,7 @@
     <input type="hidden" name="_csrf_token" value={Plug.CSRFProtection.get_csrf_token()} />
     <ul>
       <li>
-        <p class="text-xl font-bold">
-          Tus datos
-        </p>
+        <PhoenixSampleWeb.PageView.form_section title={"Tus datos"} />
       </li>
       <li class="my-5">
         <label for="name" class="inline-block w-20">Nombre<span class="text-red-500">*</span></label>
@@ -23,9 +21,7 @@
         <input type="email" id="email" name="user_email" placeholder="ricky12@gmail.com" class="rounded-md" required/>
       </li>
       <li>
-        <p class="text-xl font-bold mt-12">
-          Perfil del cliente
-        </p>
+        <.form_section title={"Perfil del usuario"} classes={"mt-12"} />
       </li>
       <li class="my-5">
         <label for="location" class="inline-block w-20">Ubicacion<span class="text-red-500">*</span></label>
