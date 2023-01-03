@@ -31,20 +31,14 @@
           <option value="mexico">Mexico</option>
         </select>
       </li>
-      <p class="text-md">Edades</p>
+      <p class="text-md">Edades<.red_asterisk /></p>
       <div class="flex flex-col lg:flex-row">
-        <div class="flex flex-row">
-          <input type="checkbox" id="age-students" name="age_students" class="mt-1 ml-4 mr-2 lg:ml-0">
-          <label for="age-students">Estudiantes - 16 a 22 años</label>
-        </div>
-        <div class="flex flex-row">
-          <input type="checkbox" id="age-young-adults" name="age_young_adults" class="mt-1 ml-4 mr-2">
-          <label for="age-young-adults">Adultos Temprano - 23 a 32 años</label>
-        </div>
-        <div class="flex flex-row">
-          <input type="checkbox" id="age-experienced-adults" name="age_experienced_adults" class="mt-1 ml-4 mr-2">
-          <label for="age-experienced-adults">Adultos con Experiencia - 33 a 52 años</label>
-        </div>
+        <%= for {name, description} <- [{"age_students", "Estudiantes - 16 a 22 años"}, {"age_young_adults", "Adultos Temprano - 23 a 32 años"}, {"age_experienced_adults", "Adultos con Experiencia - 33 a 52 años"}] do %>
+          <div class="flex flex-row">
+            <input type="checkbox" id={name} name={name} class="mt-1 ml-4 mr-2 lg:ml-0">
+            <label for={name} class="mr-4"><%= description %></label>
+          </div>
+        <% end %>
       </div>
       <li class="my-5">
         <label for="description" class="block">Informacion adicional</label>
