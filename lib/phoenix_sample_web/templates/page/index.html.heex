@@ -10,22 +10,22 @@
     <input type="hidden" name="_csrf_token" value={Plug.CSRFProtection.get_csrf_token()} />
     <ul>
       <li>
-        <PhoenixSampleWeb.PageView.form_section title={"Tus datos"} />
+        <.form_section title={"Tus datos"} />
       </li>
       <li class="my-5">
-        <label for="name" class="inline-block w-20">Nombre<span class="text-red-500">*</span></label>
-        <input type="text" id="name" name="user_name" placeholder="Ricardo" class="rounded-md" required/>
+        <label for="name" class="inline-block w-20">Nombre<.red_asterisk /></label>
+        <input type="text" id="name" name="user_name" placeholder="Ricardo" class="rounded-md drop-shadow-md" required/>
       </li>
       <li class="my-5">
-        <label for="email" class="inline-block w-20">Email<span class="text-red-500">*</span></label>
-        <input type="email" id="email" name="user_email" placeholder="ricky12@gmail.com" class="rounded-md" required/>
+        <label for="email" class="inline-block w-20">Email<.red_asterisk /></label>
+        <input type="email" id="email" name="user_email" placeholder="ricky12@gmail.com" class="rounded-md drop-shadow-md" required/>
       </li>
       <li>
         <.form_section title={"Perfil del usuario"} classes={"mt-12"} />
       </li>
       <li class="my-5">
-        <label for="location" class="inline-block w-20">Ubicacion<span class="text-red-500">*</span></label>
-        <select id="location" name="user_location" class="rounded-md" required>
+        <label for="location" class="inline-block w-20">Ubicacion<.red_asterisk /></label>
+        <select id="location" name="user_location" class="rounded-md drop-shadow-md" required>
           <option value="" disabled selected>elegi un pais</option>
           <option value="argentina">Argentina</option>
           <option value="chile">Chile</option>
@@ -34,14 +34,14 @@
       </li>
       <li class="my-5">
         <label for="description" class="block">Informacion adicional</label>
-        <textarea type="email" id="description" name="user_description" placeholder="Estoy buscando gente que le guste el rock que tengan entre 20-30 años." class="w-full mt-2 rounded-md"/>
+        <textarea type="email" id="description" name="user_description" placeholder="Estoy buscando gente que le guste el rock que tengan entre 20-30 años." class="w-full mt-2 rounded-md  drop-shadow-md"/>
       </li>
       <li class="flex flex-col  justify-center">
-        <button type="submit" class="mx-auto">
+        <button type="submit" class="mx-auto py-1 px-6 rounded-lg text-white bg-neutral-500 hover:bg-neutral-300 active:bg-neutral-700">
           Enviar
         </button>
         <p class="my-8">
-          <span class="text-red-500">*</span>Informacion requerida
+          <.red_asterisk />Informacion requerida
         </p>
       </li>
     </ul>
